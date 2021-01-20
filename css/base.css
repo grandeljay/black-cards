@@ -1,0 +1,95 @@
+:root {
+    --colourBlack: #000;
+    --colourWhite: #fff;
+    
+    --paddingElementDefaultY: 1rem;
+    --paddingElementDefaultX: 2rem;
+
+    --radiusDefault: 16px;
+}
+
+body {
+    margin: 0;
+
+    font-size: 16pt;
+    font-family: 'Raleway', sans-serif;
+
+    color: var(--colourWhite);
+    background-color: #333;
+}
+
+main {
+    width: 60ch;
+    max-width: 100%;
+    margin: var(--paddingElementDefaultY) auto 0 auto;
+    padding: var(--paddingElementDefaultY) var(--paddingElementDefaultX);
+
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+p:first-of-type {
+    margin-top: 0;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+input {
+    padding: var(--paddingElementDefaultY) var(--paddingElementDefaultX);
+
+    font-family: inherit;
+    font-size: inherit;
+
+    color: inherit;
+    background-color: inherit;
+}
+
+input[type="submit"] {  
+    cursor: pointer;
+    border: 1px solid var(--colourWhite);
+}
+
+input[type="submit"]:hover {  
+    color: var(--colourBlack);
+    background-color: var(--colourWhite);
+}
+
+.card {
+    width: 180px;
+    height: 280px;
+    padding: var(--paddingElementDefaultY) var(--paddingElementDefaultX);
+
+    box-sizing: border-box;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+                0 2px 2px rgba(0,0,0,0.12), 
+                0 4px 4px rgba(0,0,0,0.12), 
+                0 8px 8px rgba(0,0,0,0.12),
+                0 16px 16px rgba(0,0,0,0.12);    
+    border-radius: var(--radiusDefault);
+    user-select: none;
+}
+
+.card.black {
+    color: var(--colourWhite);
+    background-color: var(--colourBlack);
+}
+
+.card.white {
+    color: var(--colourBlack);
+    background-color: var(--colourWhite);
+}

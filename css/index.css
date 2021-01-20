@@ -1,0 +1,116 @@
+main {
+    position: relative;
+
+    z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    z-index: 5;    
+}
+
+h1 {
+    line-height: 1;
+    word-spacing: 100vw;
+    user-select: none;
+}
+
+h2 {
+    margin: 1em 0 0.4em 0;
+}
+
+h3 {
+    margin: 2em 0 0.4em 0;
+}
+
+input[type="submit"] {
+    width: 100%;
+
+    margin-top: 1em;
+
+    border-radius: var(--radiusDefault);
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin-top: 1em;
+
+    transform: rotateZ(15deg);
+
+    z-index: 0;
+}
+
+.card.black {
+    animation: slideBlackCard 4s ease alternate infinite;
+
+    z-index: 1;
+}
+
+.card.white {
+    animation: slideWhiteCard 4s ease alternate infinite;
+}
+
+@keyframes slideBlackCard {
+    0%,
+    20% {
+        right: 30px;
+
+        transform: rotateZ(15deg);
+    }
+
+    50%,
+    100% {
+        right: 140px;
+
+        transform: rotateZ(-5deg);
+    }
+
+    60%,
+    100% {
+        right: 160px;
+    }
+}
+
+@keyframes slideWhiteCard {
+    0%,
+    20% {
+        right: 30px;
+
+        transform: rotateZ(15deg);
+    }
+
+    50% {
+        right: 140px;
+
+        margin-top: 1em;
+
+        transform: rotateZ(5deg);
+    }
+
+    70%,
+    100% {
+        right: 30px;
+        
+        margin-top: 2em;
+
+        transform: rotateZ(15deg);
+    }
+}
+
+@media(max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .card {
+        display: none;
+    }
+}
