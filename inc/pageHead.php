@@ -1,32 +1,62 @@
 <?php
-$pageHead = [
-    '<meta charset="UTF-8">',
-    '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+function getPageHead(): array {
+    $pageHead = array_merge(
+        getDefault(),
+        getStylesheets(),
+        getTitle()
+    );
 
-    '<link rel="preconnect" href="https://fonts.gstatic.com">',
-    '<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">',
+    return $pageHead;
+}
 
-    '<link rel="stylesheet" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/css/base.css">',
-    '<link rel="stylesheet" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/css/index.css">',
-    '<link rel="stylesheet" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/css/responsive.css">'
-];
+function getDefault(): array {
+    $default = [
+        '<meta charset="UTF-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
 
-$pageHeadTitle = [
-    'new-game' => 'Start a new Game'
-];
-$pageHeadTitleFound = false;
+        '<link rel="preconnect" href="https://fonts.gstatic.com">',
+        '<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">',
+    ];
 
-foreach ($pageHeadTitle as $key => $value) {
-    if (str_ends_with(str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']), $key . '/index.php')) {
-        $pageHead[] = '<title>' . $value . ' - Black Cards: A Cards Against Humanity clone</title>';
-        $pageHeadTitleFound = true;
-        break;
+    return $default;
+}
+
+function getStylesheets(): array {
+    $stylesheets = [
+        '<link rel="stylesheet" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/css/base.css">',
+    ];
+
+    $stylesheet = 'css' . str_replace('.php', '.css', $_SERVER['ORIG_PATH_INFO']);
+    if (file_exists($stylesheet)) {
+        $stylesheets[] = '<link rel="stylesheet" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $stylesheet . '">';
     }
+
+    $stylesheets[] = '<link rel="stylesheet" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/css/responsive.css">';
+
+    return $stylesheets;
 }
 
-if (!$pageHeadTitleFound) {
-    $pageHead[] = '<title>Black Cards: A Cards Against Humanity clone</title>';
+function getTitle(): array {
+    $pageHeadTitle = [];
+    $pageHeadTitles = [
+        'new-game' => 'Start a new Game'
+    ];
+    $pageHeadTitleFound = false;
+
+    foreach ($pageHeadTitles as $key => $value) {
+        if (str_ends_with(str_replace('\\', '/', $_SERVER['SCRIPT_FILENAME']), $key . '/index.php')) {
+            $pageHeadTitle[] = '<title>' . $value . ' - Black Cards: A Cards Against Humanity clone</title>';
+            $pageHeadTitleFound = true;
+            break;
+        }
+    }
+
+    if (!$pageHeadTitleFound) {
+        $pageHeadTitle[] = '<title>Black Cards: A Cards Against Humanity clone</title>';
+    }
+
+    return $pageHeadTitle;
 }
 
-echo implode(PHP_EOL . '    ', $pageHead);
+echo implode(PHP_EOL . '    ', getPageHead()) . PHP_EOL;
 ?>
