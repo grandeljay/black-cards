@@ -17,9 +17,7 @@
         <p>Cards Against Humanity is a party game for horrible people. Unlike most of the party games you've played before, Cards Against Humanity is as despicable and awkward as you and your friends.</p>
         <p>The game is simple. Each round, one player asks a question from a black card, and everyone else answers with their funniest white card.</p>
 
-        <form method="post">
-            <input type="submit" value="Start a new Game">
-        </form>
+        <a class="button" href="new-game">Start a new Game</a>
     </main>
 </body>
 </html>
