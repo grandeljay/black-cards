@@ -1,11 +1,16 @@
 :root {
     --colourBlack: #000;
     --colourWhite: #fff;
-    
+
     --paddingElementDefaultY: 1rem;
     --paddingElementDefaultX: 2rem;
 
     --radiusDefault: 16px;
+}
+
+::selection {
+    text-shadow: none;
+    background-color: var(--colourBlack);
 }
 
 body {
@@ -59,12 +64,12 @@ input {
     background-color: inherit;
 }
 
-input[type="submit"] {  
+input[type="submit"] {
     cursor: pointer;
     border: 1px solid var(--colourWhite);
 }
 
-input[type="submit"]:hover {  
+input[type="submit"]:hover {
     color: var(--colourBlack);
     background-color: var(--colourWhite);
 }
@@ -72,14 +77,12 @@ input[type="submit"]:hover {
 .card {
     width: 180px;
     height: 280px;
-    padding: var(--paddingElementDefaultY) var(--paddingElementDefaultX);
+    padding: var(--paddingElementDefaultX);
 
     box-sizing: border-box;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
-                0 2px 2px rgba(0,0,0,0.12), 
-                0 4px 4px rgba(0,0,0,0.12), 
-                0 8px 8px rgba(0,0,0,0.12),
-                0 16px 16px rgba(0,0,0,0.12);    
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12),
+                0 2px 2px rgba(0,0,0,0.12),
+                0 4px 4px rgba(0,0,0,0.12);
     border-radius: var(--radiusDefault);
     user-select: none;
 }

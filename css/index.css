@@ -11,7 +11,7 @@ h4,
 h5,
 h6 {
     position: relative;
-    z-index: 5;    
+    z-index: 5;
 }
 
 h1 {
@@ -26,6 +26,13 @@ h2 {
 
 h3 {
     margin: 2em 0 0.4em 0;
+}
+
+p {
+    position: relative;
+    z-index: 5;
+
+    text-shadow: 1px 1px 2px #333;
 }
 
 input[type="submit"] {
@@ -64,6 +71,7 @@ input[type="submit"] {
         right: 30px;
 
         transform: rotateZ(15deg);
+        filter: blur(0);
     }
 
     50%,
@@ -71,6 +79,7 @@ input[type="submit"] {
         right: 140px;
 
         transform: rotateZ(-5deg);
+        filter: blur(0);
     }
 
     60%,
@@ -98,7 +107,7 @@ input[type="submit"] {
     70%,
     100% {
         right: 30px;
-        
+
         margin-top: 2em;
 
         transform: rotateZ(15deg);
