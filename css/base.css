@@ -41,6 +41,15 @@ p:last-of-type {
     margin-bottom: 0;
 }
 
+p,
+label {
+    line-height: 1.4;
+}
+
+label {
+    font-size: 1.2em;
+}
+
 h1,
 h2,
 h3,
@@ -66,13 +75,19 @@ h1 {
 }
 
 input {
-    padding: var(--paddingElementDefaultY) var(--paddingElementDefaultX);
+    padding: var(--paddingElementDefaultY);
 
     font-family: inherit;
     font-size: inherit;
 
     color: inherit;
     background-color: inherit;
+    border: 1px solid var(--colourWhite);
+    border-radius: var(--radiusDefault);
+}
+
+input:focus-visible {
+    outline: none;
 }
 
 .button,
@@ -85,6 +100,26 @@ input[type="submit"] {
 input[type="submit"]:hover {
     color: var(--colourBlack);
     background-color: var(--colourWhite);
+}
+
+form {
+    margin-top: 2em;
+}
+
+form > * {
+    margin-bottom: 1em;
+}
+
+form > *:last-child {
+    margin-bottom: 0;
+}
+
+form label,
+form input {
+    display: block;
+    width: 100%;
+
+    box-sizing: border-box;
 }
 
 .card {
@@ -108,4 +143,14 @@ input[type="submit"]:hover {
 .card.white {
     color: var(--colourBlack);
     background-color: var(--colourWhite);
+}
+
+@media(max-width: 768px) {
+    main {
+        padding: calc(var(--paddingElementDefaultY) / 2) calc(var(--paddingElementDefaultX) / 2);
+    }
+
+    h1 {
+        font-size: 2em;
+    }
 }

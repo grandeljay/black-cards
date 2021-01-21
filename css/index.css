@@ -116,10 +116,6 @@ input[type="submit"] {
 }
 
 @media(max-width: 768px) {
-    h1 {
-        font-size: 2em;
-    }
-
     .card {
         display: none;
     }
