@@ -9,7 +9,7 @@
     <main>
         <h1>Start a Black Cards Game</h1>
 
-        <form action="game.php" method="post">
+        <form action="game" method="post">
             <label for="name">What is your name?</label>
             <input type="text" name="name" id="name" placeholder="John Doe" pattern="[\w ]+" autocomplete="off">
 
