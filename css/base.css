@@ -54,6 +54,17 @@ h1 {
     font-size: 4em;
 }
 
+.button {
+    display: block;
+
+    padding: var(--paddingElementDefaultY) var(--paddingElementDefaultX);
+
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: inherit;
+}
+
 input {
     padding: var(--paddingElementDefaultY) var(--paddingElementDefaultX);
 
@@ -64,11 +75,13 @@ input {
     background-color: inherit;
 }
 
+.button,
 input[type="submit"] {
     cursor: pointer;
     border: 1px solid var(--colourWhite);
 }
 
+.button:hover,
 input[type="submit"]:hover {
     color: var(--colourBlack);
     background-color: var(--colourWhite);

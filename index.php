@@ -3,17 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/responsive.css">
-
-    <title>Black Cards - A Cards Against Humanity clone</title>
+<?php require_once 'inc/pageHead.php'; ?>
 </head>
 <body>
     <main>
