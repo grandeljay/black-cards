@@ -3,7 +3,8 @@ function getPageHead(): array {
     $pageHead = array_merge(
         getDefault(),
         getStylesheets(),
-        getTitle()
+        getTitle(),
+        getScripts()
     );
 
     return $pageHead;
@@ -34,6 +35,17 @@ function getStylesheets(): array {
     $stylesheets[] = '<link rel="stylesheet" href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/css/responsive.css">';
 
     return $stylesheets;
+}
+
+function getScripts(): array {
+    $scripts = [];
+
+    $script = 'js' . str_replace('.php', '.js', $_SERVER['ORIG_PATH_INFO']);
+    if (file_exists($script)) {
+        $scripts[] = '<script defer src="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . $script . '"></script>';
+    }
+
+    return $scripts;
 }
 
 function getTitle(): array {

@@ -6,6 +6,9 @@
     --paddingElementDefaultX: 2rem;
 
     --radiusDefault: 16px;
+
+    --cardWidth: 180px;
+    --cardHeight: 280px;
 }
 
 ::selection {
@@ -123,8 +126,8 @@ form input {
 }
 
 .card {
-    width: 180px;
-    height: 280px;
+    width: var(--cardWidth);
+    height: var(--cardHeight);
     padding: var(--paddingElementDefaultX);
 
     box-sizing: border-box;
@@ -133,6 +136,7 @@ form input {
                 0 4px 4px rgba(0,0,0,0.12);
     border-radius: var(--radiusDefault);
     user-select: none;
+    overflow: hidden auto;
 }
 
 .card.black {

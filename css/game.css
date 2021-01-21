@@ -1,0 +1,94 @@
+body {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-areas: "sidebar main";
+}
+
+body main {
+    grid-area: main;
+
+    width: 100%;
+}
+
+body aside {
+    grid-area: sidebar;
+
+    height: 100vh;
+
+    color: var(--colourBlack);
+    background-color: var(--colourWhite);
+}
+
+.playedCards,
+.playerAvailableCards {
+    display: grid;
+    grid-gap: var(--paddingElementDefaultY);
+    grid-template-columns: repeat(5, max-content);
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerAvailableCards {
+    margin-top: var(--paddingElementDefaultY);
+    padding-top: var(--paddingElementDefaultY);
+
+    border-top: 1px solid #d9d9d9;
+
+    scroll-snap-type: y mandatory;
+}
+
+.playedCards .card,
+.playerAvailableCards .card {
+    position: relative;
+
+    box-sizing: content-box;
+
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+
+.playerAvailableCards .card {
+    transition: opacity 0.2s ease;
+
+    opacity: 0.8;
+}
+
+.playerAvailableCards .card.selected,
+.playerAvailableCards .card:hover {
+    opacity: 1;
+}
+
+.playerAvailableCards .card a {
+    transition: color 0.2s ease, bottom 0.2s ease;
+
+    display: block;
+    width: 100%;
+    padding: var(--paddingElementDefaultY) var(--paddingElementDefaultX);
+    box-sizing: border-box;
+
+    position: absolute;
+    bottom: calc((0.8em + var(--paddingElementDefaultY) * 2) * -1);
+    left: 0;
+
+    font-size: 0.8em;
+    line-height: 0.8;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #d9d9d9;
+    background-color: #f4f4f4;
+    border-top: 1px solid #d9d9d9;
+}
+
+.playerAvailableCards .card:hover a {
+    bottom: 0;
+}
+
+.playerAvailableCards .card a:hover {
+    color: var(--colourBlack);
+}
+
+.playerAvailableCards .card.selected a {
+    bottom: 0;
+}
