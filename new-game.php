@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php require_once '../inc/pageHead.php'; ?>
+<?php require_once 'inc/pageHead.php'; ?>
 </head>
 <body>
     <main>
